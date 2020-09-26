@@ -1,0 +1,13 @@
+# Project exclude paths
+/lanka-common/target/
+/lanka-elasticsearch/target/
+/lanka-fastFDS/target/
+/lanka-gateway/target/
+/lanka-nacos/nacos-config/target/
+/lanka-openfeign/target/
+/lanka-rabbitmq/target/
+/lanka-redis/target/
+/lanka-sentinel/target/
+/lanka-service/target/
+/lanka-service-api/target/
+/lanka-shiro/target/

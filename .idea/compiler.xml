@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="lanka-fastFDS" />
+        <module name="lanka-common" />
+        <module name="lanka-openfeign" />
+        <module name="nacos-config" />
+        <module name="lanka-redis" />
+        <module name="lanka-rabbitmq" />
+        <module name="lanka-shiro" />
+        <module name="lanka-service" />
+        <module name="lanka-sentinel" />
+        <module name="lanka-elasticsearch" />
+        <module name="lanka-gateway" />
+        <module name="lanka-service-api" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="lanka" options="-parameters" />
+      <module name="lanka-common" options="-parameters" />
+      <module name="lanka-elasticsearch" options="-parameters" />
+      <module name="lanka-fastFDS" options="-parameters" />
+      <module name="lanka-gateway" options="-parameters" />
+      <module name="lanka-mybaitsplus" options="-parameters" />
+      <module name="lanka-nacos" options="-parameters" />
+      <module name="lanka-openfeign" options="-parameters" />
+      <module name="lanka-rabbitmq" options="-parameters" />
+      <module name="lanka-redis" options="-parameters" />
+      <module name="lanka-sentinel" options="-parameters" />
+      <module name="lanka-service" options="-parameters" />
+      <module name="lanka-service-api" options="-parameters" />
+      <module name="lanka-shiro" options="-parameters" />
+      <module name="nacos-config" options="-parameters" />
+    </option>
+  </component>
+</project>

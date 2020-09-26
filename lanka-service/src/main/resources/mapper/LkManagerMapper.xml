@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.service.mapper.LkManagerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="serviceapi.entity.LkManager">
+        <id column="id" property="id" />
+        <result column="user_account" property="userAccount" />
+        <result column="name" property="name" />
+        <result column="password" property="password" />
+        <result column="salt" property="salt" />
+        <result column="mobile" property="mobile" />
+        <result column="tips" property="tips" />
+        <result column="state" property="state" />
+        <result column="created_time" property="createdTime" />
+        <result column="updated_time" property="updatedTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_account, name, password, salt, mobile, tips, state, created_time, updated_time
+    </sql>
+
+    <select id="findByAccount" resultMap="BaseResultMap" parameterType="String">
+        select * from lk_manager where user_account = #{userAccount}
+    </select>
+
+    <select id="selectById" resultMap="BaseResultMap" parameterType="Integer">
+        select * from lk_manager where id = #{id}
+    </select>
+</mapper>

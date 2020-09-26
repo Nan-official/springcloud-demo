@@ -1,0 +1,111 @@
+#spring:
+#  cloud:
+#    gateway:
+#      enabled: true #表明gateway开启服务注册和发现的功能，并且spring cloud gateway自动根据服务发现为每一个服务创建了一个router，这个router将以服务名开头的请求路径转发到对应的服务。
+#      discovery:
+#        locator:
+#          lower-case-service-id: true  #是将请求路径上的服务名配置为小写（因为服务注册的时候，向注册中心注册时将服务名转成大写的了），比如以/service-hi/*的请求路径被路由转发到服务名为service-hi的服务上。
+#      routes:
+#        - id: lanka-shiro
+#          uri: http://localhost:9110/user/lkManager
+#          predicates:
+#            - Path=/user/**
+#          #            - Header=Cookie,Set-Cookie
+#          filters:
+#            # - SwaggerHeaderFilter
+#            - StripPrefix=1
+#        - id:  lanka-service
+#          uri: http://localhost:9080/lk-service
+#          predicates:
+#            - Path=/test/**
+#          filters:
+#            # - SwaggerHeaderFilter  //指定filter
+#            - StripPrefix=1
+#  datasource:                                     # 数据源的相关配置
+#    type: com.zaxxer.hikari.HikariDataSource      # 数据源类型：HikariCP
+#    driver-class-name: com.mysql.cj.jdbc.Driver    # mysql驱动
+#    url: jdbc:mysql://127.0.0.1:3306/lankatest?useUnicode=true&useSSL=false&characterEncoding=utf-8
+#    username: root
+#    password: root
+#    hikari:
+#      connection-timeout: 30000            # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQLException，默认：30秒
+#      minimum-idle: 5                      # 最小连接
+#      maximum-pool-size: 20               # 最大连接
+#      auto-commit: true                   # 自动提交
+#      idle-timeout: 600000                # 连接超时的最大时长（毫秒），超时则被释放（retired），默认：10分钟
+#      pool-name: DateSourceHikariCP       # 连接池名字
+#      max-lifetime: 1800000              #  连接的生命时长（毫秒），超时而且没被使用则被释放，默认：30分钟
+#      connection-test-query: SELECT 1
+#    servlet:
+#      multipart:
+#        max-file-size: 512000 # 文件上传大小限制为500kb = 500 * 1024
+#        max-request-size: 512000 # 请求大小限制为500kb
+#
+#    sentinel:
+#      transport:
+#        dashboard: localhost:8080 #配置sentinel dashboard地址
+#        port: 8080
+#      datasource:
+#        dds1:
+#          nacos:
+#            server-addr: localhost:8848
+#            # dataId: ${spring.application.name}-sentinel
+#            # groupId: DEFAULT_GROUP
+#            # data-type: json
+#            # rule-type: flow
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#  #Redis配置
+#  redis:
+#    database: 0 # Redis数据库索引（默认为0）
+#    host: 127.0.0.1  #Redis服务器地址
+#    port: 6379 # Redis服务器连接端口
+#    password: # Redis服务器连接密码（默认为空）
+#    pool:
+#      max-active: 20 # 连接池最大连接数（使用负值表示没有限制）
+#      max-idle: 10 # 连接池中的最大空闲连接
+#      max-wait: 1000 # 连接池最大阻塞等待时间（使用负值表示没有限制）
+#      min-idle: 5 # 连接池中的最小空闲连接
+#      timeout: 0 # 连接超时时间（毫秒）
+##########################################################################
+##
+## fdfs 配置
+##
+##########################################################################
+#fdfs:
+#  connect-timeout: 5000 # 连接的超时时间
+#  so-timeout: 5000 # 读取的超时时间
+#  tracker-list: 192.168.64.137:22122 # tracker服务所在的ip地址和端口号
+#feign:
+#  sentinel:
+#    enabled: true #打开sentinel对feign的支持
+#  #########################################################################
+#  #
+#  # mybatis 配置
+#  #
+#  ########################################################################
+#  ## mybatis配置 - start
+#mybatis-plus:
+#  # mapper.xml扫描
+#  mapper-locations: classpath*:/mapper/*.xml
+#  # 实体扫描，多个package用逗号或者分号分隔
+#  type-aliases-package: serviceapi.entity
+#
+#
+##########################################################################
+##
+## mybatis mapper配置
+##
+##########################################################################
+##mapper:
+##  mappers: com.zzm.my.mapper.MyMapper
+##  not-empty: false
+##  identity: MYSQL
+##分页插件配置
+#pagehelper:
+#  helper-dialect: mysql
+#  support-methods-arguments: true
+#

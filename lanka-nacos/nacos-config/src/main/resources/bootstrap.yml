@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: nacos-config
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 2bcb811f-46e9-4a51-bcbc-af9e15b25f6c
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: 2bcb811f-46e9-4a51-bcbc-af9e15b25f6c
+        file-extension: yml
+        shared-configs:
+          - dataId: lanka-config.yml
+            refresh: true
+          - dataId: lanka-common.yml
+            refresh: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
